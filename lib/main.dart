@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shopp/features/shopp/presentation/pages/homePage.dart';
 import 'package:shopp/features/shopp/presentation/pages/login_page.dart';
 
 void main() {
