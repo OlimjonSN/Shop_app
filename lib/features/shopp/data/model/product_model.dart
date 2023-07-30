@@ -1,16 +1,14 @@
 class ProductModel {
   final int price;
-  final String categoryId;
-  final String productId;
+  final String categoryName;
   final String productName;
   final String description;
-  final String imageUrl;
+  String imageUrl;
   final String createdAt;
 
   ProductModel({
     required this.price,
-    required this.categoryId,
-    required this.productId,
+    required this.categoryName,
     required this.productName,
     required this.description,
     required this.imageUrl,
@@ -20,8 +18,7 @@ class ProductModel {
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
       price: json['price'],
-      categoryId: json['categoryId'],
-      productId: json['productId'],
+      categoryName: json['categoryName'],
       productName: json['productName'],
       description: json['description'],
       imageUrl: json['imageUrl'],
@@ -32,8 +29,7 @@ class ProductModel {
   Map<String, dynamic> toJson() {
     return {
       'price': price,
-      'categoryId': categoryId,
-      'productId': productId,
+      'categoryName': categoryName,
       'productName': productName,
       'description': description,
       'imageUrl': imageUrl,
