@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopp/features/shopp/presentation/widgets/bigSale_home.dart';
-import 'package:shopp/features/shopp/presentation/widgets/headBar_home.dart';
+import 'package:shopp/features/shopp/presentation/widgets/head_bar_home.dart';
 import 'package:shopp/features/shopp/presentation/widgets/searchBar_home.dart';
 
 import '../widgets/categoryList.dart';
@@ -25,7 +25,15 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(top: 15, right: 15, left: 15),
             child: Column(
               children: [
-                HeadBar(height: height),
+                HeadBar(
+                  height: height,
+                  title: Column(
+                    children: [
+                      Text('Hello zakie', style: TextStyle(fontSize: height * 0.02, fontWeight: FontWeight.w400, color: const Color(0xFF5F5A5A))),
+                      Text('Jakarta, IND', style: TextStyle(fontSize: height * 0.02, fontWeight: FontWeight.w700, color: const Color(0xFF131849))),
+                    ],
+                  ),
+                ),
                 SizedBox(
                   height: height * 0.02,
                 ),

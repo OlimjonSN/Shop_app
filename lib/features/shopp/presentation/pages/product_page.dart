@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../widgets/yellow_button.dart';
+
 class ProductPage extends StatelessWidget {
   const ProductPage({super.key});
 
@@ -71,19 +73,7 @@ class ProductPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      FilledButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFFFF9A62)),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                          ),
-                          minimumSize: MaterialStateProperty.all<Size>(const Size(210, 61)),
-                        ),
-                        child: const Text('Buy Now', style: TextStyle(color: Colors.white, fontSize: 19, fontFamily: 'Bellota Text', fontWeight: FontWeight.w700)),
-                      ),
+                      const YellowButton(title: 'Buy Now'),
                       IconButton(
                         onPressed: () {},
                         style: ButtonStyle(shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))), minimumSize: MaterialStateProperty.all<Size>(const Size(68, 68))),
