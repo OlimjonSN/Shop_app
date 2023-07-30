@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'features/auth/presentation/registration_page.dart';
 
-import 'features/shopp/presentation/pages/splash_screen.dart';
 import 'injection_container.dart';
 
 void main()async {
