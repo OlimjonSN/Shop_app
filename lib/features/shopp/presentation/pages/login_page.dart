@@ -15,6 +15,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Image.asset('assets/images/wandarLogo.png', height: MediaQuery.of(context).size.height * 0.3),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
