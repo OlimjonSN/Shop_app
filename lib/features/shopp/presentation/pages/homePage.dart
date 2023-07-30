@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shopp/features/shopp/presentation/widgets/bigSale_home.dart';
 import 'package:shopp/features/shopp/presentation/widgets/headBar_home.dart';
 import 'package:shopp/features/shopp/presentation/widgets/searchBar_home.dart';
