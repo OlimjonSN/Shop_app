@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopp/features/shopp/presentation/widgets/bigSale_home.dart';
+import 'package:shopp/features/shopp/presentation/widgets/big_sale_home.dart';
 import 'package:shopp/features/shopp/presentation/widgets/head_bar_home.dart';
-import 'package:shopp/features/shopp/presentation/widgets/searchBar_home.dart';
+import 'package:shopp/features/shopp/presentation/widgets/search_bar_home.dart';
 
 import '../../../../config/router/routes.dart';
 import '../widgets/categoryList.dart';

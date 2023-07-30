@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../config/router/routes.dart';
+
 class HeadBar extends StatelessWidget {
   final Widget title;
   const HeadBar({
@@ -34,9 +36,18 @@ class HeadBar extends StatelessWidget {
       ),
       title: title,
       actions: [
-        CircleAvatar(
-          radius: height * 0.03,
-          backgroundImage: const NetworkImage('https://images.unsplash.com/photo-1690371316561-9462fef3de91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80'),
+        // TODO: Remove icon buttons hover effect
+        InkWell(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          onTap: () {
+            Navigator.pushNamed(context, RouteGenerator.profilePage);
+          },
+          child: CircleAvatar(
+            radius: height * 0.03,
+            backgroundImage: const NetworkImage('https://images.unsplash.com/photo-1690371316561-9462fef3de91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80'),
+          ),
         ),
       ],
     );

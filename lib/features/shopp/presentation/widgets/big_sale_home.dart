@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Bigsale extends StatelessWidget {
-  const Bigsale({
-    super.key,
-  });
+  const Bigsale({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +20,12 @@ class Bigsale extends StatelessWidget {
                 RichText(
                   text: const TextSpan(
                     text: 'Big Sale\n',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.w600),
                     children: <TextSpan>[
-                      TextSpan(text: 'Get the trendy \nFashion at a discount \nof up to 50% ', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15)),
+                      TextSpan(
+                        text: 'Get the trendy \nFashion at a discount \nof up to 50% ',
+                        style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
+                      ),
                     ],
                   ),
                 ),
@@ -37,11 +34,10 @@ class Bigsale extends StatelessWidget {
           ),
         ),
         Positioned(
-            top: -20,
-            left: -22,
-            child: Image.asset(
-              'assets/images/opa.png',
-            )),
+          top: -20,
+          left: -22,
+          child: Image.asset('assets/images/opa.png'),
+        ),
       ],
     );
   }

@@ -6,6 +6,7 @@ import '../../features/auth/presentation/pages/splash_screen.dart';
 import '../../features/shopp/presentation/pages/cart_page.dart';
 import '../../features/shopp/presentation/pages/home_page.dart';
 import '../../features/shopp/presentation/pages/product_page.dart';
+import '../../features/shopp/presentation/pages/profile_page.dart';
 
 class RouteGenerator {
   static const String splashScreen = '/splash';
@@ -32,8 +33,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ProductPage());
       case cartPage:
         return MaterialPageRoute(builder: (_) => const CartPage());
-      // case profilePage:
-      //   return MaterialPageRoute(builder: (_) => ProfilePage());
+      case profilePage:
+        return MaterialPageRoute(builder: (_) => const ProfilePage());
       default:
         return MaterialPageRoute(builder: (_) => const HomePage());
     }
