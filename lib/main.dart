@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'features/auth/presentation/registration_page.dart';
 
-import 'injection_container.dart';
+import 'features/auth/presentation/pages/registration_page.dart';
+// import 'injection_container.dart';
 
 void main()async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await init();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await init();
   runApp(const MyApp());
 }
 
