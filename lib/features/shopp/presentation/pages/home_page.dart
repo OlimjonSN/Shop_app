@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shopp/features/shopp/presentation/widgets/bigSale_home.dart';
 import 'package:shopp/features/shopp/presentation/widgets/head_bar_home.dart';
 import 'package:shopp/features/shopp/presentation/widgets/searchBar_home.dart';
@@ -67,14 +68,12 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Expanded(
                                 flex: 8,
-                                child: Container(
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Image.asset(
-                                      width: double.infinity,
-                                      'assets/images/xola.png',
-                                      fit: BoxFit.cover,
-                                    ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.asset(
+                                    width: double.infinity,
+                                    'assets/images/xola.png',
+                                    fit: BoxFit.cover,
                                   ),
                                 )),
                             Expanded(
@@ -110,19 +109,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: Container(
-            height: 55,
-            width: width * 0.7,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Row(children: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.home)),
-              IconButton(onPressed: () {}, icon: Icon(Icons.home)),
-              IconButton(onPressed: () {}, icon: Icon(Icons.home)),
-            ]),
-          )),
+          floatingActionButton: Navigation(width: width)),
     );
   }
 }
