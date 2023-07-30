@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-import 'features/auth/presentation/pages/registration_page.dart';
+import 'config/router/routes.dart';
 // import 'injection_container.dart';
 
 void main()async {
@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'BellotaText', textTheme: const TextTheme(bodySmall: TextStyle(color: Color(0xFF5F5A5A), fontWeight: FontWeight.w400))),
       title: 'Shop',
-      home: RegistrationPage(),
+      initialRoute: RouteGenerator.splashScreen,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

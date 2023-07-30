@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shopp/features/shopp/presentation/widgets/yellow_button.dart';
 
+import '../../../../config/router/routes.dart';
+
 class LoginPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -39,12 +41,19 @@ class LoginPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16.0),
-            const YellowButton(title: 'Login'),
+            YellowButton(
+              title: 'Login',
+              onTap: () {
+                Navigator.pushNamed(context, RouteGenerator.home);
+              },
+            ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.08),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               const Text('Don\'t have an account? ', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 14)),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, RouteGenerator.register);
+                },
                 child: const Text('Sign up', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14)),
               ),
             ]),

@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 
 class YellowButton extends StatelessWidget {
   final String title;
+  final VoidCallback? onTap;
+
   const YellowButton({
     super.key,
     required this.title,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return FilledButton(
-      onPressed: () {},
+      onPressed: onTap,
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFFFF9A62)),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
