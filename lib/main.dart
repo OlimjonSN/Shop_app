@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopp/features/shopp/presentation/pages/login_page.dart';
-import 'package:shopp/features/shopp/presentation/pages/splash_screen.dart';
 
-import 'features/auth/data/model/user_model.dart';
+import 'features/shopp/presentation/pages/splash_screen.dart';
 import 'injection_container.dart';
 
 void main()async {
