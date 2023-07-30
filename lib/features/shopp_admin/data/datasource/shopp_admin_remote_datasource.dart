@@ -5,12 +5,11 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
+import 'package:shopp/features/shopp/data/datasource/shopp_remote_datasource.dart';
 import 'package:shopp/features/shopp/data/model/product_model.dart';
 
-class ShoppAdminRemoteDatasource {
-  FirebaseStorage firebaseStorage;
-
-  ShoppAdminRemoteDatasource({required this.firebaseStorage});
+class ShoppAdminRemoteDatasource extends ShoppRemoteDatasource {
+  ShoppAdminRemoteDatasource({required firebaseStorage}) : super(firebaseStorage: firebaseStorage);
 
   /// Uploads Product Model
   Future<UploadTask> uploadProduct(ProductModel productModel, XFile? file) async {
