@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class searchbar extends StatelessWidget {
-  const searchbar({
+class Searchbar extends StatelessWidget {
+  const Searchbar({
     super.key,
     required this.height,
   });

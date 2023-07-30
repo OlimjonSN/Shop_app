@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class headBar extends StatelessWidget {
-  const headBar({
+class HeadBar extends StatelessWidget {
+  const HeadBar({
     super.key,
     required this.height,
   });
@@ -11,11 +11,18 @@ class headBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        CircleAvatar(
-          radius: height * 0.03,
+    return AppBar(
+      toolbarHeight: 35,
+      centerTitle: true,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      leading: InkWell(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        onTap: () {},
+        child: CircleAvatar(
+          radius: height * 0.02,
           backgroundColor: Colors.white,
           child: Padding(
             padding: const EdgeInsets.only(top: 5.0),
@@ -25,12 +32,14 @@ class headBar extends StatelessWidget {
             ),
           ),
         ),
-        Column(
-          children: [
-            Text('Hello zakie', style: TextStyle(fontSize: height * 0.02, fontWeight: FontWeight.w400, color: const Color(0xFF5F5A5A))),
-            Text('Jakarta, IND', style: TextStyle(fontSize: height * 0.02, fontWeight: FontWeight.w700, color: const Color(0xFF131849))),
-          ],
-        ),
+      ),
+      title: Column(
+        children: [
+          Text('Hello zakie', style: TextStyle(fontSize: height * 0.02, fontWeight: FontWeight.w400, color: const Color(0xFF5F5A5A))),
+          Text('Jakarta, IND', style: TextStyle(fontSize: height * 0.02, fontWeight: FontWeight.w700, color: const Color(0xFF131849))),
+        ],
+      ),
+      actions: [
         CircleAvatar(
           radius: height * 0.03,
           // use image network
