@@ -19,12 +19,12 @@ class UserModel {
 
   factory UserModel.fromFirebase(UserCredential userCredential) {
     return UserModel(
-      name: userCredential.user!.displayName,
-      email: userCredential.user!.email,
-      phone: userCredential.user!.phoneNumber,
-      uId: userCredential.user!.uid,
-      image: userCredential.user!.photoURL,
-      isEmailVerified: userCredential.user!.emailVerified,
+      name: userCredential.user?.displayName,
+      email: userCredential.user?.email,
+      phone: userCredential.user?.phoneNumber,
+      uId: userCredential.user?.uid,
+      image: userCredential.user?.photoURL,
+      isEmailVerified: userCredential.user?.emailVerified,
     );
   }
 
