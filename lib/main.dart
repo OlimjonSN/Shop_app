@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'features/auth/presentation/registration_page.dart';
+
 import 'features/shopp/presentation/pages/splash_screen.dart';
 import 'injection_container.dart';
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'BellotaText', textTheme: const TextTheme(bodySmall: TextStyle(color: Color(0xFF5F5A5A), fontWeight: FontWeight.w400))),
       title: 'Shop',
-      home: SplashScreen(),
+      home: RegistrationPage(),
     );
   }
 }
