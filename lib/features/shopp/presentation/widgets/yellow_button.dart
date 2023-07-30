@@ -20,7 +20,7 @@ class YellowButton extends StatelessWidget {
         ),
         minimumSize: MaterialStateProperty.all<Size>(const Size(210, 61)),
       ),
-      child: Text(title, style: const TextStyle(color: Colors.white, fontSize: 19, fontFamily: 'Bellota Text', fontWeight: FontWeight.w700)),
+      child: Text(title, style: const TextStyle(color: Colors.white, fontSize: 19, fontFamily: 'Bellota Text', fontWeight: FontWeight.w500)),
     );
   }
 }

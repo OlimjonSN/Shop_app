@@ -4,6 +4,7 @@ import 'package:shopp/features/shopp/presentation/widgets/head_bar_home.dart';
 import 'package:shopp/features/shopp/presentation/widgets/searchBar_home.dart';
 
 import '../widgets/categoryList.dart';
+import '../widgets/navigation_home.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,7 +16,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
     List categorylist = ['All', 'Clothes', 'Shoes', 'Bags', 'Watches', 'Accessories', 'Jewelry'];
     return SafeArea(
@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: Navigation(width: width)),
+          floatingActionButton: const Navigation()),
     );
   }
 }
