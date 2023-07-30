@@ -55,15 +55,7 @@ class RegistrationPage extends StatelessWidget {
                   Navigator.pushNamed(context, RouteGenerator.home);
                 }),
             SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Text('Don\'t have an account? ', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 14)),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, RouteGenerator.login);
-                },
-                child: const Text('Sign up', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14)),
-              ),
-            ]),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [const Text('already have a account ', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 14)), TextButton(onPressed: () {}, child: const Text('Sign in', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14)))]),
           ],
         ),
       ),
