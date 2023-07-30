@@ -18,9 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF3E7E7),
       body: Center(
-        child: Image.asset(
-          'assets/images/wandarLogo.png',
-        ),
+        child: Image.asset('assets/images/wandarLogo.png'),
       ),
     );
   }

@@ -6,6 +6,8 @@ class RegistrationPage extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordController2 = TextEditingController();
 
+  RegistrationPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
