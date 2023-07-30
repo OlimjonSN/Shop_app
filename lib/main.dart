@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:shopp/features/auth/data/repositories/auth_repository.dart';
 
-void main() {
+import 'features/auth/data/model/user_model.dart';
+import 'injection_container.dart';
+
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await init();
   runApp(const MyApp());
 }
 
@@ -57,7 +63,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  void _incrementCounter()async {
+    AuthRepository authRepository = sl<AuthRepository>();
+    UserModel userModel = await authRepository.loginWithEmailAndPassword('example@gmail.com', 'example');
+    print(userModel.email);
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
