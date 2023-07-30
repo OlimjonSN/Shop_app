@@ -3,7 +3,7 @@ import 'package:shopp/features/auth/data/model/user_model.dart';
 
 class AuthRemoteData {
   // accepts firebase instance
-  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  FirebaseAuth firebaseAuth;
 
   AuthRemoteData({required this.firebaseAuth});
 
