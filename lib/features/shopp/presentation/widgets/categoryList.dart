@@ -25,7 +25,7 @@ class _CategoryListState extends State<CategoryList> {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2.0),
             child: FilledButton(
-                style: FilledButton.styleFrom(backgroundColor: selectedIndex == index ? Color(0xFFFF9A62) : Colors.grey),
+                style: FilledButton.styleFrom(backgroundColor: selectedIndex == index ? const Color(0xFFFF9A62) : const Color(0xFFDED9D9)),
                 onPressed: () {
                   setState(() {
                     selectedIndex = index;

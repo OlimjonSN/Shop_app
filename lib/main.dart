@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopp/features/shopp/presentation/pages/product_page.dart';
+import 'package:shopp/features/shopp/presentation/pages/homePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'BellotaText', textTheme: const TextTheme(bodySmall: TextStyle(color: Color(0xFF5F5A5A), fontWeight: FontWeight.w400))),
       title: 'Shop',
-      home:  const ProductPage(),
+      home: const HomePage(),
     );
   }
 }
