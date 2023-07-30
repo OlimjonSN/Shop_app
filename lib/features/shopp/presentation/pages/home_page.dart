@@ -34,34 +34,21 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: height * 0.02,
-                ),
+                SizedBox(height: height * 0.02),
                 // search bar
                 Searchbar(height: height),
-                SizedBox(
-                  height: height * 0.03,
-                ),
+                SizedBox(height: height * 0.03),
                 const Bigsale(),
-                SizedBox(
-                  height: height * 0.02,
-                ),
+                SizedBox(height: height * 0.02),
                 CategoryList(categorylist: categorylist),
                 const SizedBox(height: 20),
                 Expanded(
                   child: GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 5,
-                      crossAxisSpacing: 12,
-                      mainAxisExtent: 250,
-                    ),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 5, crossAxisSpacing: 12, mainAxisExtent: 250),
                     itemCount: 6,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -69,11 +56,7 @@ class _HomePageState extends State<HomePage> {
                                 flex: 8,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
-                                  child: Image.asset(
-                                    width: double.infinity,
-                                    'assets/images/xola.png',
-                                    fit: BoxFit.cover,
-                                  ),
+                                  child: Image.asset(width: double.infinity, 'assets/images/xola.png', fit: BoxFit.cover),
                                 )),
                             Expanded(
                                 flex: 2,
@@ -89,11 +72,7 @@ class _HomePageState extends State<HomePage> {
                                         shape: BoxShape.circle,
                                         boxShadow: [BoxShadow(blurRadius: 2, color: Color(0xFFFF9A62), spreadRadius: 5)],
                                       ),
-                                      child: const Icon(
-                                        size: 16,
-                                        Icons.favorite_outline,
-                                        color: Colors.white,
-                                      ),
+                                      child: const Icon(size: 16, Icons.favorite_outline, color: Colors.white),
                                     )
                                   ],
                                 )),
