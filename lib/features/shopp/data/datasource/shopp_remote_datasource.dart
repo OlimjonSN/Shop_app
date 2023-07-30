@@ -48,4 +48,17 @@ class ShoppRemoteDatasource {
 
     return categories;
   }
+
+  /// Gets all the products
+  Future<List<ProductModel>> getAllProducts() async {
+    List<String> categories = await getCategories();
+
+    List<ProductModel> products = [];
+
+    for (String category in categories) {
+      products.addAll(await getProducts(category));
+    }
+
+    return products;
+  }
 }

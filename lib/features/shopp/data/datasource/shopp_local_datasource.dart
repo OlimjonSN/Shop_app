@@ -42,4 +42,11 @@ class ShoppLocalDatasource {
 
     return products;
   }
+
+  /// Gets the product by product name
+  Future<ProductModel> getProduct(String categoryName, String productName) async {
+    List<ProductModel> products = await getProducts(categoryName);
+
+    return products.firstWhere((element) => element.productName == productName);
+  }
 }
