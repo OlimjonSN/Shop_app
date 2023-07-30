@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopp/features/shopp/presentation/pages/login_page.dart';
-import 'package:shopp/features/shopp/presentation/pages/registration_page.dart';
-import 'package:shopp/features/shopp/presentation/pages/splash_screen.dart';
+
+import 'features/auth/presentation/registration_page.dart';
 
 void main() {
   runApp(const MyApp());

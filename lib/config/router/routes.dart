@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shopp/features/shopp/presentation/pages/splash_screen.dart';
 
+import '../../features/auth/presentation/login_page.dart';
+import '../../features/auth/presentation/splash_screen.dart';
 import '../../features/shopp/presentation/pages/cart_page.dart';
 import '../../features/shopp/presentation/pages/home_page.dart';
-import '../../features/shopp/presentation/pages/login_page.dart';
 import '../../features/shopp/presentation/pages/product_page.dart';
 
 class RouteGenerator {
