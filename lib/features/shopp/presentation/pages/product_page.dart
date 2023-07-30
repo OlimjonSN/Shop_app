@@ -26,19 +26,30 @@ class ProductPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: 41,
-                        height: 41,
-                        padding: const EdgeInsets.all(8),
-                        decoration: const ShapeDecoration(color: Colors.white, shape: OvalBorder()),
-                        child: SvgPicture.asset('assets/icons/back.svg'),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          width: 41,
+                          height: 41,
+                          padding: const EdgeInsets.all(8),
+                          decoration: const ShapeDecoration(color: Colors.white, shape: OvalBorder()),
+                          child: SvgPicture.asset('assets/icons/back.svg'),
+                        ),
                       ),
-                      Container(
-                        width: 41,
-                        height: 41,
-                        padding: const EdgeInsets.all(8),
-                        decoration: const ShapeDecoration(color: Colors.white, shape: OvalBorder()),
-                        child: SvgPicture.asset('assets/icons/heart.svg'),
+                      InkWell(
+                        // TODO: MAKE HEART ICON WORK
+                        onTap: () {
+                          print('heart');
+                        },
+                        child: Container(
+                          width: 41,
+                          height: 41,
+                          padding: const EdgeInsets.all(8),
+                          decoration: const ShapeDecoration(color: Colors.white, shape: OvalBorder()),
+                          child: SvgPicture.asset('assets/icons/heart.svg'),
+                        ),
                       ),
                     ],
                   ),
@@ -73,9 +84,18 @@ class ProductPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const YellowButton(title: 'Buy Now'),
+                      YellowButton(
+                        title: 'Buy Now',
+                        // TODO: buy now
+                        onTap: () {
+                          print('buy now');
+                        },
+                      ),
                       IconButton(
-                        onPressed: () {},
+                        // TODO: add to cart
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         style: ButtonStyle(shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))), minimumSize: MaterialStateProperty.all<Size>(const Size(68, 68))),
                         icon: SvgPicture.asset('assets/icons/cart.svg'),
                         // icon:Icon(Icons.add_shopping_cart),
