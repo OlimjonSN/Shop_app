@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopp/features/auth/presentation/registration_page.dart';
+import 'package:shopp/features/shopp/presentation/pages/profileEdit_page.dart';
 import 'package:shopp/features/shopp/presentation/pages/profile_page.dart';
 
 void main() {

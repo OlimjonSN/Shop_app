@@ -24,26 +24,75 @@ class ProfilePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: const Color(0xFFFF9A62),
               ),
-              child: const ListTile(
+              child: ListTile(
                 style: ListTileStyle.list,
-                leading: CircleAvatar(
+                leading: const CircleAvatar(
                   backgroundImage: AssetImage('assets/images/xola.png'),
                 ),
-                title: Text(
+                title: const Text(
                   'Name',
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
                 ),
-                subtitle: Text(
+                subtitle: const Text(
                   'Email',
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
                 ),
+                trailing: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.edit,
+                      color: Colors.white,
+                    )),
               ),
             ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              child: const Column(
+                children: [
+                  ListTile(
+                    leading: CircleAvatar(
+                      child: Icon(Icons.person),
+                    ),
+                    title: Text('My Account'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                  ),
+                  SizedBox(height: 10),
+                  ListTile(
+                    leading: CircleAvatar(
+                      child: Icon(Icons.face),
+                    ),
+                    title: Text('face ID'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                  ),
+                  SizedBox(height: 10),
+                  ListTile(
+                    leading: CircleAvatar(
+                      child: Icon(Icons.lock),
+                    ),
+                    title: Text('two-factor authentication'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                  ),
+                  SizedBox(height: 10),
+                  ListTile(
+                    leading: CircleAvatar(
+                      child: Icon(Icons.logout),
+                    ),
+                    title: Text('Log-out'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Navigation(),
+      floatingActionButton: const Navigation(),
     );
   }
 }
