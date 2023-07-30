@@ -48,7 +48,7 @@ class RegistrationPage extends StatelessWidget {
             const SizedBox(height: 16.0),
             const YellowButton(title: 'Sign up'),
             SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [Text('already have a account ', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 14)), TextButton(onPressed: () {}, child: Text('Sign in', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14)))]),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [const Text('already have a account ', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 14)), TextButton(onPressed: () {}, child: const Text('Sign in', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14)))]),
           ],
         ),
       ),

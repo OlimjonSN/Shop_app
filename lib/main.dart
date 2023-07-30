@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopp/features/shopp/presentation/pages/login_page.dart';
-import 'package:shopp/features/shopp/presentation/pages/registration_page.dart';
-import 'package:shopp/features/shopp/presentation/pages/splash_screen.dart';
+import 'package:shopp/features/auth/presentation/registration_page.dart';
+import 'package:shopp/features/shopp/presentation/pages/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'BellotaText', textTheme: const TextTheme(bodySmall: TextStyle(color: Color(0xFF5F5A5A), fontWeight: FontWeight.w400))),
       title: 'Shop',
-      home: RegistrationPage(),
+      home: const ProfilePage(),
     );
   }
 }
