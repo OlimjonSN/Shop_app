@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shopp/features/shopp/presentation/widgets/bigSale_home.dart';
-import 'package:shopp/features/shopp/presentation/widgets/headBar_home.dart';
-import 'package:shopp/features/shopp/presentation/widgets/navigation_home.dart';
+import 'package:shopp/features/shopp/presentation/widgets/head_bar_home.dart';
 import 'package:shopp/features/shopp/presentation/widgets/searchBar_home.dart';
 
 import '../widgets/categoryList.dart';
+import '../widgets/navigation_home.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,7 +16,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
     List categorylist = ['All', 'Clothes', 'Shoes', 'Bags', 'Watches', 'Accessories', 'Jewelry'];
     return SafeArea(
@@ -27,7 +25,15 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(top: 15, right: 15, left: 15),
             child: Column(
               children: [
-                HeadBar(height: height),
+                HeadBar(
+                  height: height,
+                  title: Column(
+                    children: [
+                      Text('Hello zakie', style: TextStyle(fontSize: height * 0.02, fontWeight: FontWeight.w400, color: const Color(0xFF5F5A5A))),
+                      Text('Jakarta, IND', style: TextStyle(fontSize: height * 0.02, fontWeight: FontWeight.w700, color: const Color(0xFF131849))),
+                    ],
+                  ),
+                ),
                 SizedBox(
                   height: height * 0.02,
                 ),
@@ -102,7 +108,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: Navigation(width: width)),
+          floatingActionButton: const Navigation()),
     );
   }
 }
