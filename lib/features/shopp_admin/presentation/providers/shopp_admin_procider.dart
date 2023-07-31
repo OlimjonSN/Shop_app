@@ -13,6 +13,8 @@ class ShoppAdminProvider with ChangeNotifier {
 
   ShoppAdminState shoppAdminState = ShoppAdminState.initial;
   String? errorMessage;
+  List<ProductModel> products = [];
+  List<String> categories = [];
 
   Future<void> addProduct(ProductModel productModel, XFile file) async {
     shoppAdminState = ShoppAdminState.loading;
@@ -55,7 +57,7 @@ class ShoppAdminProvider with ChangeNotifier {
     shoppAdminState = ShoppAdminState.loading;
     notifyListeners();
     try {
-      await shoppAdminRepository.getProducts(categoryName);
+      products = await shoppAdminRepository.getProducts(categoryName);
       shoppAdminState = ShoppAdminState.loaded;
       notifyListeners();
     } on InternetException {
@@ -74,7 +76,7 @@ class ShoppAdminProvider with ChangeNotifier {
     shoppAdminState = ShoppAdminState.loading;
     notifyListeners();
     try {
-      await shoppAdminRepository.getCategories();
+      categories = await shoppAdminRepository.getCategories();
       shoppAdminState = ShoppAdminState.loaded;
       notifyListeners();
     } on InternetException {
@@ -93,7 +95,7 @@ class ShoppAdminProvider with ChangeNotifier {
     shoppAdminState = ShoppAdminState.loading;
     notifyListeners();
     try {
-      await shoppAdminRepository.getAllProducts();
+      products = await shoppAdminRepository.getAllProducts();
       shoppAdminState = ShoppAdminState.loaded;
       notifyListeners();
     } on InternetException {

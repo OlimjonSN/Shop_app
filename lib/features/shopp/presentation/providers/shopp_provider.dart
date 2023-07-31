@@ -57,5 +57,4 @@ class ShoppProvider with ChangeNotifier {
       notifyListeners();
     }
   }
-
 }
