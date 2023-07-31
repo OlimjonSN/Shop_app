@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,6 +20,7 @@ Future<void> init() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   final FirebaseAuth auth = FirebaseAuth.instanceFor(app: app);
+  final FirebaseStorage storage = FirebaseStorage.instanceFor(app: app);
 
   // Repository
   sl.registerLazySingleton<AuthRepository>(
@@ -31,7 +33,7 @@ Future<void> init() async {
 
   // Data sources
   sl.registerLazySingleton<AuthRemoteData>(
-    () => AuthRemoteData(firebaseAuth: sl()),
+    () => AuthRemoteData(firebaseAuth: sl(), firebaseStorage: sl()),
   );
 
   sl.registerLazySingleton<AuthLocalData>(
@@ -47,6 +49,7 @@ Future<void> init() async {
 
   sl.registerLazySingleton(() => sharedPreferences);
   sl.registerLazySingleton(() => auth);
+  sl.registerLazySingleton(() => storage);
   // sl.registerLazySingleton(() => http.Client());
   sl.registerLazySingleton(() => InternetConnectionChecker());
 }

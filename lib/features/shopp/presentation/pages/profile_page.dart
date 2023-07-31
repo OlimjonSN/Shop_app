@@ -10,10 +10,7 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: const Text(
-          'Profile',
-          style: TextStyle(color: Colors.black),
-        ),
+        title: const Text('Profile', style: TextStyle(color: Colors.black)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -38,20 +35,15 @@ class ProfilePage extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
                 ),
                 trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.edit,
-                      color: Colors.white,
-                    )),
+                  onPressed: () {},
+                  icon: const Icon(Icons.edit, color: Colors.white),
+                ),
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             Container(
               padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
               child: const Column(
                 children: [
                   ListTile(

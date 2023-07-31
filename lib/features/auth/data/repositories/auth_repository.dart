@@ -61,5 +61,16 @@ class AuthRepository {
     }
   }
 
+  Future<List<String>> getAdmins() async {
+    // check if there is internet connection
+    if (await networkInfo.isConnected) {
+      // get admins
+      List<String> admins = await authRemoteData.getAdmins();
+      // return admins
+      return admins;
+    } else {
+      throw InternetException();
+    }
+  }
 
 }
