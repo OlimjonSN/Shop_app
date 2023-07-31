@@ -47,7 +47,6 @@ class _ProductPageState extends State<ProductPage> {
                           ),
                         ),
                         InkWell(
-                          // TODO: MAKE HEART ICON WORK
                           onTap: () {
                             setState(() {
                               isLiked = !isLiked;
@@ -96,13 +95,9 @@ class _ProductPageState extends State<ProductPage> {
                       children: [
                         YellowButton(
                           title: 'Buy Now',
-                          // TODO: buy now
-                          onTap: () {
-                            print('buy now');
-                          },
+                          onTap: () {},
                         ),
                         IconButton(
-                          // TODO: add to cart
                           onPressed: () {
                             Navigator.pop(context);
                           },
