@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopp/features/auth/presentation/pages/registration_page.dart';
+import 'package:shopp/features/shopp_admin/presentation/add_category.dart';
+import 'package:shopp/features/shopp_admin/presentation/add_product.dart';
 import 'package:shopp/features/shopp_admin/presentation/category_admin.dart';
 
 import '../../features/auth/presentation/pages/login_page.dart';
@@ -27,7 +29,8 @@ class RouteGenerator {
   static const String categoyAdmin = '/categoryAdmin';
   static const String productAdmin = '/productAdmin';
   static const String profileAdmin = '/profileAdmin';
-
+  static const String addCategory = '/addCategory';
+  static const String addProduct = '/addProduct';
   static Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case splashScreen:
@@ -50,6 +53,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ProductAdmin());
       case profileAdmin:
         return MaterialPageRoute(builder: (_) => const ProfileAdmin());
+      case addCategory:
+        return MaterialPageRoute(builder: (_) => const AddCategory());
+      case addProduct:
+        return MaterialPageRoute(builder: (_) => const AddProduct());
       default:
         return MaterialPageRoute(builder: (_) => const HomePage());
     }
