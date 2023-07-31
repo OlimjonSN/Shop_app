@@ -70,9 +70,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       const Text('Casual T-shirt\n\$35'),
                                       InkWell(
-                                        onTap: () {
-                                          print('heart');
-                                        },
+                                        onTap: () {},
                                         child: Container(
                                           height: 30,
                                           width: 30,

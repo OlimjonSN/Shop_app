@@ -32,11 +32,11 @@ class ProfileAdmin extends StatelessWidget {
               color: Colors.amber,
               height: 50,
               width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 8.0),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       'data',
                       style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.w600),
                     ),
@@ -44,18 +44,18 @@ class ProfileAdmin extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
               color: Colors.amber,
               height: 50,
               width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 8.0),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       'example@gmail.com',
                       style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.w600),
                     ),

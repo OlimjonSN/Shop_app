@@ -49,13 +49,15 @@ class _ProductPageState extends State<ProductPage> {
                         InkWell(
                           // TODO: MAKE HEART ICON WORK
                           onTap: () {
-                            print('heart');
+                            setState(() {
+                              isLiked = !isLiked;
+                            });
                           },
                           child: Container(
                             width: 41,
                             height: 41,
                             padding: const EdgeInsets.all(8),
-                            decoration: const ShapeDecoration(color: Colors.white, shape: OvalBorder()),
+                            decoration: ShapeDecoration(color: isLiked ? Colors.red : Colors.white, shape: const OvalBorder()),
                             child: SvgPicture.asset('assets/icons/heart.svg'),
                           ),
                         ),

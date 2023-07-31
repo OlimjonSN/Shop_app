@@ -9,7 +9,7 @@ class CategoyAdmin extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Category'),
-          backgroundColor: Color(0xFFFF9A62),
+          backgroundColor: const Color(0xFFFF9A62),
           elevation: 0.0,
           actions: [
             IconButton(
