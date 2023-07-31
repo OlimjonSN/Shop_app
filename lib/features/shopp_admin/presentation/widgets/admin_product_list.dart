@@ -4,17 +4,17 @@ import 'package:shimmer/shimmer.dart';
 
 import '../providers/shopp_admin_procider.dart';
 
-class AdminCategoryList extends StatefulWidget {
-  const AdminCategoryList({super.key});
+class AdminProductList extends StatefulWidget {
+  const AdminProductList({super.key});
 
   @override
-  State<AdminCategoryList> createState() => _AdminCategoryListState();
+  State<AdminProductList> createState() => _AdminProductListState();
 }
 
-class _AdminCategoryListState extends State<AdminCategoryList> {
+class _AdminProductListState extends State<AdminProductList> {
   @override
   void initState() {
-    Provider.of<ShoppAdminProvider>(context, listen: false).getCategories();
+    Provider.of<ShoppAdminProvider>(context, listen: false).getAllProducts();
     super.initState();
   }
 
@@ -33,16 +33,16 @@ class _AdminCategoryListState extends State<AdminCategoryList> {
               });
         } else if (admin.shoppAdminState == ShoppAdminState.loaded) {
           return ListView.builder(
-            itemCount: admin.categories.length,
+            itemCount: admin.products.length,
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
                 leading: SizedBox(
                   width: 100,
                   height: 100,
-                  child: Image.asset('assets/images/xola.png'),
+                  child: Image.network(admin.products[index].imageUrl),
                 ),
-                title: Text(admin.categories[index]),
-                subtitle: const Text('sifatli mahsulotlar'),
+                title: Text(admin.products[index].productName),
+                subtitle: Text(admin.products[index].description),
                 trailing: IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.edit),

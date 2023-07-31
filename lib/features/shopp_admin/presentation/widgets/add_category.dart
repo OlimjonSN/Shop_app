@@ -1,7 +1,9 @@
 // import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/shopp_admin_procider.dart';
 
 class AddCategory extends StatefulWidget {
   const AddCategory({super.key});
@@ -11,16 +13,8 @@ class AddCategory extends StatefulWidget {
 }
 
 class _AddCategoryState extends State<AddCategory> {
-  PlatformFile? pickedFile;
-  Future selectFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles();
-
-    if (result != null) {
-      // File file = File((result.files.single.path).toString());
-    } else {
-      // User canceled the picker
-    }
-  }
+  TextEditingController nameController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +23,15 @@ class _AddCategoryState extends State<AddCategory> {
         backgroundColor: const Color(0xFFFF9A62),
         title: const Text('Add Category'),
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Provider.of<ShoppAdminProvider>(context, listen: false).createCategory(nameController.text);
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.check),
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -36,14 +39,16 @@ class _AddCategoryState extends State<AddCategory> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              controller: nameController,
               decoration: inputDecoration('category name'),
             ),
             const SizedBox(height: 20),
             TextField(
+              controller: descriptionController,
               decoration: inputDecoration('description'),
             ),
-            const SizedBox(height: 15),
-            FilledButton(onPressed: selectFile, child: const Text('select File'))
+            // const SizedBox(height: 15),
+            // FilledButton(onPressed: selectFile, child: const Text('select File'))
           ],
         ),
       ),

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:shopp/features/shopp_admin/presentation/widgets/bottom_bar.dart';
+import 'package:shopp/features/shopp_admin/presentation/widgets/admin_product_list.dart';
 
-import '../providers/shopp_admin_procider.dart';
-import '../widgets/admin_category_list.dart';
+import '../widgets/bottom_bar.dart';
 
 class ProductAdmin extends StatelessWidget {
   const ProductAdmin({super.key});
@@ -24,7 +22,7 @@ class ProductAdmin extends StatelessWidget {
                 icon: const Icon(Icons.add))
           ],
         ),
-        body: AdminCategoryList(onRefresh: Provider.of<ShoppAdminProvider>(context, listen: false).getAllProducts),
+        body: const AdminProductList(),
         bottomNavigationBar: const BottomBar(selectedIndex: 1));
   }
 }
