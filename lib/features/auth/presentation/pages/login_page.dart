@@ -30,7 +30,6 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          const StatusMessageBuilder(),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -73,6 +72,7 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
+          const StatusMessageBuilder(),
         ],
       ),
     );
@@ -115,10 +115,9 @@ class _LoginPageState extends State<LoginPage> {
     final AuthProvider authProvider = Provider.of<AuthProvider>(context, listen: false);
     bool isAdmin = await authProvider.login(emailController.text, passwordController.text);
     if (isAdmin && authProvider.status == Status.authenticated) {
-      // TODO: change to admin page
-      Navigator.pushNamed(context, RouteGenerator.profilePage);
+      Navigator.pushNamedAndRemoveUntil(context, RouteGenerator.categoyAdmin, (route) => false);
     } else if (authProvider.status == Status.authenticated) {
-      Navigator.pushNamed(context, RouteGenerator.home);
+      Navigator.pushNamedAndRemoveUntil(context, RouteGenerator.home, (route) => false);
     }
   }
 }

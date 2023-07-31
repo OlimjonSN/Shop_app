@@ -64,9 +64,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   ],
                 ),
                 const SizedBox(height: 16.0),
-                YellowButton(
-                    title: 'Sign up',
-                    onTap: registerFunc),
+                YellowButton(title: 'Sign up', onTap: registerFunc),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [const Text('already have a account ', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 14)), TextButton(onPressed: () {}, child: const Text('Sign in', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14)))]),
               ],
@@ -108,7 +106,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ))
             : null,
         hintStyle: const TextStyle(color: Colors.grey, fontWeight: FontWeight.w600));
-      
   }
 
   void registerFunc() async {
@@ -116,10 +113,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
     final AuthProvider authProvider = Provider.of<AuthProvider>(context, listen: false);
     bool isAdmin = await authProvider.register(emailController.text, passwordController.text);
     if (isAdmin && authProvider.status == Status.authenticated) {
-      // TODO: change to admin page
-      Navigator.pushNamed(context, RouteGenerator.profilePage);
+      Navigator.pushNamedAndRemoveUntil(context, RouteGenerator.categoyAdmin, (route) => false);
     } else if (authProvider.status == Status.authenticated) {
-      Navigator.pushNamed(context, RouteGenerator.home);
+      Navigator.pushNamedAndRemoveUntil(context, RouteGenerator.home, (route) => false);
     }
   }
 }
