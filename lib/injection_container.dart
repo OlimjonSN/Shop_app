@@ -2,12 +2,14 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shopp/features/auth/data/datasource/auth_local_data.dart';
 import 'package:shopp/features/auth/data/datasource/auth_remote_data.dart';
 import 'package:shopp/features/auth/data/repositories/auth_repository.dart';
+import 'package:shopp/features/auth/presentation/providers/auth_provider.dart';
 
 import 'core/firebase_options.dart';
 import 'core/network/network_info.dart';
@@ -19,6 +21,14 @@ Future<void> init() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   final FirebaseAuth auth = FirebaseAuth.instanceFor(app: app);
+  final FirebaseStorage storage = FirebaseStorage.instanceFor(app: app);
+
+  // Providers
+  sl.registerFactory(
+    () => AuthProvider(
+      authRepository: sl(),
+    ),
+  );
 
   // Repository
   sl.registerLazySingleton<AuthRepository>(
@@ -31,7 +41,7 @@ Future<void> init() async {
 
   // Data sources
   sl.registerLazySingleton<AuthRemoteData>(
-    () => AuthRemoteData(firebaseAuth: sl()),
+    () => AuthRemoteData(firebaseAuth: sl(), firebaseStorage: sl()),
   );
 
   sl.registerLazySingleton<AuthLocalData>(
@@ -47,6 +57,7 @@ Future<void> init() async {
 
   sl.registerLazySingleton(() => sharedPreferences);
   sl.registerLazySingleton(() => auth);
+  sl.registerLazySingleton(() => storage);
   // sl.registerLazySingleton(() => http.Client());
   sl.registerLazySingleton(() => InternetConnectionChecker());
 }

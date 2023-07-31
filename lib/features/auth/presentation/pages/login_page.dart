@@ -1,7 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shopp/features/auth/presentation/providers/auth_provider.dart';
 import 'package:shopp/features/shopp/presentation/widgets/yellow_button.dart';
 
 import '../../../../config/router/routes.dart';
+import '../widgets/stattus_message_builder.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,22 +27,35 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFFF3E7E7),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset('assets/images/wandarLogo.png', height: MediaQuery.of(context).size.height * 0.3),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                textFieldName('Email or Username'),
-                TextField(
-                  style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16),
-                  cursorColor: const Color(0xFF6E75A8),
-                  controller: emailController,
-                  decoration: textfieldDecoration(Icons.email, 'Email@mail.ru'),
+                Image.asset('assets/images/wandarLogo.png', height: MediaQuery.of(context).size.height * 0.3),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    textFieldName('Email or Username'),
+                    TextField(
+                      style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16),
+                      cursorColor: const Color(0xFF6E75A8),
+                      controller: emailController,
+                      decoration: textfieldDecoration(Icons.email, 'Email@mail.ru'),
+                    ),
+                    const SizedBox(height: 16.0),
+                    textFieldName('Password'),
+                    TextField(
+                      cursorColor: const Color(0xFF6E75A8),
+                      controller: passwordController,
+                      decoration: textfieldDecoration(Icons.lock, 'Password'),
+                      obscureText: true,
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 16.0),
                 textFieldName('Password'),
@@ -48,29 +66,26 @@ class _LoginPageState extends State<LoginPage> {
                     Icons.lock,
                     'Password',
                   ),
-                  obscureText: obscure,
+                  obscureText: obscure,),
+                YellowButton(
+                  title: 'Login',
+                  onTap: loginFunc,
                 ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  const Text('Don\'t have an account? ', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 14)),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, RouteGenerator.register);
+                    },
+                    child: const Text('Sign up', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14)),
+                  ),
+                ]),
               ],
             ),
-            const SizedBox(height: 16.0),
-            YellowButton(
-              title: 'Login',
-              onTap: () {
-                Navigator.pushNamed(context, RouteGenerator.home);
-              },
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Text('Don\'t have an account? ', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 14)),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, RouteGenerator.register);
-                },
-                child: const Text('Sign up', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14)),
-              ),
-            ]),
-          ],
-        ),
+          ),
+          const StatusMessageBuilder(),
+        ],
       ),
     );
   }
@@ -105,5 +120,17 @@ class _LoginPageState extends State<LoginPage> {
                   color: Colors.grey,
                 ))
             : null);
+  }
+
+  void loginFunc() async {
+    // TODO: Check user has entered data correctly
+    final AuthProvider authProvider = Provider.of<AuthProvider>(context, listen: false);
+    bool isAdmin = await authProvider.login(emailController.text, passwordController.text);
+    if (isAdmin && authProvider.status == Status.authenticated) {
+      // TODO: change to admin page
+      Navigator.pushNamed(context, RouteGenerator.profilePage);
+    } else if (authProvider.status == Status.authenticated) {
+      Navigator.pushNamed(context, RouteGenerator.home);
+    }
   }
 }
