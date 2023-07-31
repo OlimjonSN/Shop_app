@@ -9,7 +9,7 @@ import 'package:shopp/features/shopp/data/datasource/shopp_remote_datasource.dar
 import 'package:shopp/features/shopp/data/model/product_model.dart';
 
 class ShoppAdminRemoteDatasource extends ShoppRemoteDatasource {
-  ShoppAdminRemoteDatasource({required firebaseStorage}) : super(firebaseStorage: firebaseStorage);
+  ShoppAdminRemoteDatasource({required FirebaseStorage firebaseStorage}) : super(firebaseStorage: firebaseStorage);
 
   /// Uploads Product Model
   Future<UploadTask> uploadProduct(ProductModel productModel, XFile? file) async {

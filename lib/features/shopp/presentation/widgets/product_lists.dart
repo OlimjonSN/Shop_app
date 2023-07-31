@@ -20,6 +20,7 @@ class _ProductListsState extends State<ProductLists> {
     Provider.of<ShoppProvider>(context, listen: false).getAllProducts();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -61,9 +62,7 @@ class _ProductListsState extends State<ProductLists> {
                               children: [
                                 const Text('Casual T-shirt'),
                                 InkWell(
-                                  onTap: () {
-                                    print('heart');
-                                  },
+                                  onTap: () {},
                                   child: Container(
                                     height: 30,
                                     width: 30,
@@ -115,9 +114,7 @@ class _ProductListsState extends State<ProductLists> {
                               children: [
                                 const Text('Casual T-shirt'),
                                 InkWell(
-                                  onTap: () {
-                                    print('heart');
-                                  },
+                                  onTap: () {},
                                   child: Container(
                                     height: 30,
                                     width: 30,

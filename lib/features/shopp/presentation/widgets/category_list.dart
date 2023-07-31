@@ -31,7 +31,7 @@ class _CategoryListState extends State<CategoryList> {
           showModalBottomSheet(
               context: context,
               builder: (context) {
-                return Container(
+                return SizedBox(
                   height: 100,
                   child: Center(child: Text(shopp.errorMessage!)),
                 );

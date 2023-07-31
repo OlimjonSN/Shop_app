@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopp/config/router/unknown_route.dart';
 import 'package:shopp/features/auth/presentation/pages/registration_page.dart';
 
 import '../../features/auth/presentation/pages/login_page.dart';
@@ -59,7 +60,7 @@ class RouteGenerator {
       case addProduct:
         return MaterialPageRoute(builder: (_) => const AddProduct());
       default:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(builder: (_) => const UnknownRoute());
     }
   }
 }

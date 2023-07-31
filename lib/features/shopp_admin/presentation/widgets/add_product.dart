@@ -1,4 +1,4 @@
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class _AddProductState extends State<AddProduct> {
     FilePickerResult? result = await FilePicker.platform.pickFiles();
 
     if (result != null) {
-      File file = File((result.files.single.path).toString());
+      // File file = File((result.files.single.path).toString());
     } else {
       // User canceled the picker
     }

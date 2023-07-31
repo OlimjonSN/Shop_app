@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
-  BottomBar({super.key, required this.selectedIndex});
-  int selectedIndex;
+  const BottomBar({super.key, required this.selectedIndex});
+  final int selectedIndex;
   @override
   State<BottomBar> createState() => _BottomBarState();
 }
@@ -13,9 +13,6 @@ class _BottomBarState extends State<BottomBar> {
     return BottomNavigationBar(
       currentIndex: widget.selectedIndex,
       onTap: (int index) {
-        print(widget.selectedIndex);
-        widget.selectedIndex = index;
-
         if (index == 0) {
           Navigator.pushNamed(context, '/categoryAdmin');
         } else if (index == 1) {

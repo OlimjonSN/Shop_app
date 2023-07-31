@@ -74,9 +74,11 @@ class ShoppAdminProvider with ChangeNotifier {
   // get categories
   Future<void> getCategories() async {
     shoppAdminState = ShoppAdminState.loading;
-    notifyListeners();
+    // notifyListeners();
     try {
       categories = await shoppAdminRepository.getCategories();
+      print('categores');
+      print(categories);
       shoppAdminState = ShoppAdminState.loaded;
       notifyListeners();
     } on InternetException {

@@ -1,4 +1,6 @@
 import 'package:shopp/core/error/exceptions.dart';
+import 'package:shopp/core/network/network_info.dart';
+import 'package:shopp/features/shopp/data/datasource/shopp_local_datasource.dart';
 import 'package:shopp/features/shopp/data/model/product_model.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -7,9 +9,9 @@ import '../datasource/shopp_admin_remote_datasource.dart';
 
 class ShoppAdminRepository extends ShoppRepository {
   ShoppAdminRepository({
-    required networkInfo,
+    required NetworkInfo networkInfo,
     required ShoppAdminRemoteDatasource shoppAdminRemoteDatasource,
-    required shoppLocalDatasource,
+    required ShoppLocalDatasource shoppLocalDatasource,
   }) : super(
           networkInfo: networkInfo,
           shoppRemoteDatasource: shoppAdminRemoteDatasource,

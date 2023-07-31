@@ -17,6 +17,9 @@ import 'core/firebase_options.dart';
 import 'core/network/network_info.dart';
 import 'features/shopp/data/datasource/shopp_local_datasource.dart';
 import 'features/shopp/data/datasource/shopp_remote_datasource.dart';
+import 'features/shopp_admin/data/datasource/shopp_admin_remote_datasource.dart';
+import 'features/shopp_admin/data/repositories/shopp_admin_repository.dart';
+import 'features/shopp_admin/presentation/providers/shopp_admin_procider.dart';
 
 final sl = GetIt.instance;
 
@@ -29,15 +32,15 @@ Future<void> init() async {
 
   // Providers
   sl.registerFactory(
-    () => AuthProvider(
-      authRepository: sl(),
-    ),
+    () => AuthProvider(authRepository: sl()),
   );
 
   sl.registerFactory(
-    () => ShoppProvider(
-      shoppRepository: sl(),
-    ),
+    () => ShoppProvider(shoppRepository: sl()),
+  );
+
+  sl.registerFactory(
+    () => ShoppAdminProvider(shoppAdminRepository: sl()),
   );
 
   // Repository
@@ -48,12 +51,20 @@ Future<void> init() async {
       authRemoteData: sl(),
     ),
   );
-  
+
   sl.registerLazySingleton<ShoppRepository>(
     () => ShoppRepository(
       networkInfo: sl(),
       shoppLocalDatasource: sl(),
       shoppRemoteDatasource: sl(),
+    ),
+  );
+
+  sl.registerLazySingleton<ShoppAdminRepository>(
+    () => ShoppAdminRepository(
+      networkInfo: sl(),
+      shoppLocalDatasource: sl(),
+      shoppAdminRemoteDatasource: sl(),
     ),
   );
 
@@ -70,6 +81,10 @@ Future<void> init() async {
   );
   sl.registerLazySingleton<ShoppLocalDatasource>(
     () => ShoppLocalDatasource(sharedPreferences: sl()),
+  );
+
+  sl.registerLazySingleton<ShoppAdminRemoteDatasource>(
+    () => ShoppAdminRemoteDatasource(firebaseStorage: sl()),
   );
 
   //! Core
