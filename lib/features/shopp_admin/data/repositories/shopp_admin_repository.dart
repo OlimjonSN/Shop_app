@@ -1,3 +1,4 @@
+import 'package:shopp/core/error/exceptions.dart';
 import 'package:shopp/features/shopp/data/model/product_model.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -17,11 +18,13 @@ class ShoppAdminRepository extends ShoppRepository {
 
   ///  Adds a product to the database
   Future<void> addProduct(ProductModel productModel, XFile file) async {
+    if (await networkInfo.isConnected == false) throw InternetException();
     await (shoppRemoteDatasource as ShoppAdminRemoteDatasource).uploadProduct(productModel, file);
   }
 
   /// Creates a new category
   Future<void> createCategory(String categoryName) async {
+    if (await networkInfo.isConnected == false) throw InternetException();
     await (shoppRemoteDatasource as ShoppAdminRemoteDatasource).createCategory(categoryName);
   }
 }
