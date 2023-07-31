@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'BellotaText', textTheme: const TextTheme(bodySmall: TextStyle(color: Color(0xFF5F5A5A), fontWeight: FontWeight.w400))),
       title: 'Shop',
-      initialRoute: RouteGenerator.login,
+      initialRoute: RouteGenerator.profileAdmin,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
