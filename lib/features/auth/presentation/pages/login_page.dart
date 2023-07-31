@@ -30,6 +30,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(
         fit: StackFit.expand,
         children: [
+          const StatusMessageBuilder(),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -58,19 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 const SizedBox(height: 16.0),
-                textFieldName('Password'),
-                TextField(
-                  cursorColor: const Color(0xFF6E75A8),
-                  controller: passwordController,
-                  decoration: textfieldDecoration(
-                    Icons.lock,
-                    'Password',
-                  ),
-                  obscureText: obscure,),
-                YellowButton(
-                  title: 'Login',
-                  onTap: loginFunc,
-                ),
+                YellowButton(title: 'Login', onTap: loginFunc),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   const Text('Don\'t have an account? ', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 14)),
@@ -84,7 +73,6 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
-          const StatusMessageBuilder(),
         ],
       ),
     );

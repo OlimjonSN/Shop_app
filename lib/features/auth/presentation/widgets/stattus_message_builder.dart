@@ -49,7 +49,7 @@ class _StatusMessageBuilderState extends State<StatusMessageBuilder> {
             ),
           );
         } else {
-          return Container();
+          return const SizedBox();
         }
       },
     );
