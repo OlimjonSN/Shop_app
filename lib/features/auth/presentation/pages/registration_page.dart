@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:shopp/config/router/routes.dart';
 import 'package:shopp/features/shopp/presentation/widgets/yellow_button.dart';
 
-class RegistrationPage extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordController2 = TextEditingController();
-
+class RegistrationPage extends StatefulWidget {
   RegistrationPage({super.key});
 
+  @override
+  State<RegistrationPage> createState() => _RegistrationPageState();
+}
+
+class _RegistrationPageState extends State<RegistrationPage> {
+  final TextEditingController emailController = TextEditingController();
+
+  final TextEditingController passwordController = TextEditingController();
+
+  final TextEditingController passwordController2 = TextEditingController();
+  bool obscure = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +86,18 @@ class RegistrationPage extends StatelessWidget {
         focusedBorder: OutlineInputBorder(borderSide: const BorderSide(width: 3, color: Color(0xFFFF9A62)), borderRadius: BorderRadius.circular(20)),
         errorBorder: OutlineInputBorder(borderSide: const BorderSide(width: 3, color: Colors.red), borderRadius: BorderRadius.circular(20)),
         hintText: hint,
+        suffix: hint == 'Password'
+            ? IconButton(
+                onPressed: () {
+                  setState(() {
+                    obscure = !obscure;
+                  });
+                },
+                icon: Icon(
+                  obscure ? Icons.visibility_off : Icons.visibility,
+                  color: Colors.grey,
+                ))
+            : null,
         hintStyle: const TextStyle(color: Colors.grey, fontWeight: FontWeight.w600));
   }
 }

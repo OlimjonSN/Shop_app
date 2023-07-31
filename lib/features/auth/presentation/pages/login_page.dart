@@ -3,15 +3,24 @@ import 'package:shopp/features/shopp/presentation/widgets/yellow_button.dart';
 
 import '../../../../config/router/routes.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
 
-  LoginPage({super.key});
+  bool obscure = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFFF3E7E7),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -35,8 +44,11 @@ class LoginPage extends StatelessWidget {
                 TextField(
                   cursorColor: const Color(0xFF6E75A8),
                   controller: passwordController,
-                  decoration: textfieldDecoration(Icons.lock, 'Password'),
-                  obscureText: true,
+                  decoration: textfieldDecoration(
+                    Icons.lock,
+                    'Password',
+                  ),
+                  obscureText: obscure,
                 ),
               ],
             ),
@@ -80,6 +92,18 @@ class LoginPage extends StatelessWidget {
         focusedBorder: OutlineInputBorder(borderSide: const BorderSide(width: 3, color: Color(0xFFFF9A62)), borderRadius: BorderRadius.circular(20)),
         errorBorder: OutlineInputBorder(borderSide: const BorderSide(width: 3, color: Colors.red), borderRadius: BorderRadius.circular(20)),
         hintText: hint,
-        hintStyle: const TextStyle(color: Colors.grey, fontWeight: FontWeight.w600));
+        hintStyle: const TextStyle(color: Colors.grey, fontWeight: FontWeight.w600),
+        suffixIcon: hint == 'Password'
+            ? IconButton(
+                onPressed: () {
+                  setState(() {
+                    obscure = !obscure;
+                  });
+                },
+                icon: Icon(
+                  obscure ? Icons.visibility_off : Icons.visibility,
+                  color: Colors.grey,
+                ))
+            : null);
   }
 }
