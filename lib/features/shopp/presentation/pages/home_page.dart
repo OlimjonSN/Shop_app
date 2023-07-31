@@ -3,9 +3,9 @@ import 'package:shopp/features/shopp/presentation/widgets/big_sale_home.dart';
 import 'package:shopp/features/shopp/presentation/widgets/head_bar_home.dart';
 import 'package:shopp/features/shopp/presentation/widgets/search_bar_home.dart';
 
-import '../../../../config/router/routes.dart';
-import '../widgets/categoryList.dart';
+import '../widgets/category_list.dart';
 import '../widgets/navigation_home.dart';
+import '../widgets/product_lists.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -43,57 +43,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: height * 0.02),
                 CategoryList(categorylist: categorylist),
                 const SizedBox(height: 20),
-                Expanded(
-                  child: GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 5, crossAxisSpacing: 12, mainAxisExtent: 250),
-                    itemCount: 6,
-                    itemBuilder: (BuildContext context, int index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, RouteGenerator.productPage);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                  flex: 8,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Image.asset(width: double.infinity, 'assets/images/xola.png', fit: BoxFit.cover),
-                                  )),
-                              Expanded(
-                                  flex: 2,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                    children: [
-                                      const Text('Casual T-shirt\n\$35'),
-                                      InkWell(
-                                        onTap: () {
-                                          print('heart');
-                                        },
-                                        child: Container(
-                                          height: 30,
-                                          width: 30,
-                                          decoration: const BoxDecoration(
-                                            color: Color(0xFFFF9A62),
-                                            shape: BoxShape.circle,
-                                            boxShadow: [BoxShadow(blurRadius: 2, color: Color(0xFFFF9A62), spreadRadius: 5)],
-                                          ),
-                                          child: const Icon(size: 16, Icons.favorite_outline, color: Colors.white),
-                                        ),
-                                      )
-                                    ],
-                                  )),
-                              const SizedBox(height: 5),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                const ProductLists(),
               ],
             ),
           ),

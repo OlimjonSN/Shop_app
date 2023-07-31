@@ -30,11 +30,25 @@ class ShoppProvider with ChangeNotifier {
     }
   }
 
+  Future<void> getAllProducts() async{
+    shoppState = ShoppState.loading;
+    try {
+      products = await shoppRepository.getAllProducts();
+      print(products);
+      shoppState = ShoppState.loaded;
+      notifyListeners();
+    } catch (e) {
+      shoppState = ShoppState.error;
+      errorMessage = e.toString();
+      notifyListeners();
+    }
+  }
+
   Future<void> getCategories() async {
     shoppState = ShoppState.loading;
     // notifyListeners();
     try {
-      categories.addAll( await shoppRepository.getCategories());
+      categories.addAll(await shoppRepository.getCategories());
       print(categories);
       shoppState = ShoppState.loaded;
       notifyListeners();
