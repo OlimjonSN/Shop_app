@@ -9,9 +9,15 @@ class ProductAdmin extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Product'),
-          backgroundColor: Colors.grey[600],
+          backgroundColor: const Color(0xFFFF9A62),
           elevation: 0.0,
-          actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/addProduct');
+                },
+                icon: const Icon(Icons.add))
+          ],
         ),
         body: ListView.builder(
           itemCount: 1,
@@ -31,6 +37,8 @@ class ProductAdmin extends StatelessWidget {
             );
           },
         ),
-        bottomNavigationBar: BottomBar());
+        bottomNavigationBar: BottomBar(
+          selectedIndex: 1,
+        ));
   }
 }
