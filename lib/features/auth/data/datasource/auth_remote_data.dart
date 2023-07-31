@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/services.dart';
 import 'package:shopp/features/auth/data/model/user_model.dart';
 
 class AuthRemoteData {
@@ -31,10 +32,13 @@ class AuthRemoteData {
   }
 
   /// Returns a list of admins
-  Future<List<String>> getAdmins() async {
+  Future<List<dynamic>> getAdmins() async {
     Reference ref = firebaseStorage.ref().child('admins').child('admins.txt');
 
-    String product = await ref.getDownloadURL();
+    Uint8List? downloadedData = await ref.getData();
+
+    // getData
+    String product = utf8.decode(downloadedData ?? Uint8List(0));
 
     return jsonDecode(product);
   }

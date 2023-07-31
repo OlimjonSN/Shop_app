@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shopp/features/auth/data/datasource/auth_local_data.dart';
 import 'package:shopp/features/auth/data/datasource/auth_remote_data.dart';
 import 'package:shopp/features/auth/data/repositories/auth_repository.dart';
+import 'package:shopp/features/auth/presentation/providers/auth_provider.dart';
 
 import 'core/firebase_options.dart';
 import 'core/network/network_info.dart';
@@ -21,6 +22,13 @@ Future<void> init() async {
   );
   final FirebaseAuth auth = FirebaseAuth.instanceFor(app: app);
   final FirebaseStorage storage = FirebaseStorage.instanceFor(app: app);
+
+  // Providers
+  sl.registerFactory(
+    () => AuthProvider(
+      authRepository: sl(),
+    ),
+  );
 
   // Repository
   sl.registerLazySingleton<AuthRepository>(

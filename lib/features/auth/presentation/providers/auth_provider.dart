@@ -25,13 +25,10 @@ class AuthProvider with ChangeNotifier {
       userModel = await authRepository.loginWithEmailAndPassword(email, password);
 
       status = Status.authenticated;
-      notifyListeners();
-      List<String> admins = await authRepository.getAdmins();
+      List<dynamic> admins = await authRepository.getAdmins();
       if (admins.contains(userModel!.email)) {
         return true;
       } else {
-        status = Status.unauthenticated;
-        notifyListeners();
         return false;
       }
     } on InternetException {
@@ -39,9 +36,9 @@ class AuthProvider with ChangeNotifier {
       error = 'No Internet Connection';
       notifyListeners();
       return false;
-    } on Exception {
+    } on Exception catch (e) {
       status = Status.error;
-      error = 'Invalid Email or Password';
+      error = 'Invalid Email or Password\n$e';
       notifyListeners();
       return false;
     }
@@ -57,13 +54,10 @@ class AuthProvider with ChangeNotifier {
       userModel = await authRepository.registerWithEmailAndPassword(email, password);
 
       status = Status.authenticated;
-      notifyListeners();
-      List<String> admins = await authRepository.getAdmins();
+      List<dynamic> admins = await authRepository.getAdmins();
       if (admins.contains(userModel!.email)) {
         return true;
       } else {
-        status = Status.authenticated;
-        notifyListeners();
         return false;
       }
     } on InternetException {
@@ -94,5 +88,10 @@ class AuthProvider with ChangeNotifier {
       error = 'Something went wrong';
       notifyListeners();
     }
+  }
+
+  void reset () {
+    status = Status.uinitialized;
+    notifyListeners();
   }
 }

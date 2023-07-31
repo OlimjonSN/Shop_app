@@ -61,11 +61,11 @@ class AuthRepository {
     }
   }
 
-  Future<List<String>> getAdmins() async {
+  Future<List<dynamic>> getAdmins() async {
     // check if there is internet connection
     if (await networkInfo.isConnected) {
       // get admins
-      List<String> admins = await authRemoteData.getAdmins();
+      List<dynamic> admins = await authRemoteData.getAdmins();
       // return admins
       return admins;
     } else {
