@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shopp/features/shopp/data/model/product_model.dart';
 
+import '../model/order_model.dart';
+
 class ShoppLocalDatasource {
   SharedPreferences sharedPreferences;
 
@@ -48,5 +50,12 @@ class ShoppLocalDatasource {
     List<ProductModel> products = await getProducts(categoryName);
 
     return products.firstWhere((element) => element.productName == productName);
+  }
+
+  /// Gets the list of cart products
+  Future<List<OrderModel>> getCartProducts() async {
+    List<String> cartProducts = sharedPreferences.getStringList('cart') ?? [];
+
+    return cartProducts.map((e) => OrderModel.fromJson(jsonDecode(e))).toList();
   }
 }

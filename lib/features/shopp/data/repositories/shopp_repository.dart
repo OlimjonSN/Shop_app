@@ -2,6 +2,7 @@ import 'package:shopp/core/network/network_info.dart';
 import 'package:shopp/features/shopp/data/datasource/shopp_local_datasource.dart';
 import 'package:shopp/features/shopp/data/datasource/shopp_remote_datasource.dart';
 
+import '../model/order_model.dart';
 import '../model/product_model.dart';
 
 class ShoppRepository {
@@ -48,6 +49,15 @@ class ShoppRepository {
       return await shoppRemoteDatasource.getCategories();
     } else {
       return await shoppLocalDatasource.getCategories();
+    }
+  }
+
+  /// Get the list of cart
+  Future<List<OrderModel>> getCarts() async {
+    if (await networkInfo.isConnected) {
+      return await shoppRemoteDatasource.getCartProducts();
+    } else {
+      return await shoppLocalDatasource.getCartProducts();
     }
   }
 }

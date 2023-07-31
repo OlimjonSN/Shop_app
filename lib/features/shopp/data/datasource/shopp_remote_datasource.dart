@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:shopp/features/shopp/data/model/order_model.dart';
 import 'package:shopp/features/shopp/data/model/product_model.dart';
 
 class ShoppRemoteDatasource {
@@ -57,6 +58,23 @@ class ShoppRemoteDatasource {
 
     for (String category in categories) {
       products.addAll(await getProducts(category));
+    }
+
+    return products;
+  }
+
+  /// Gets the list cart products
+  Future<List<OrderModel>> getCartProducts() async {
+    Reference ref = firebaseStorage.ref().child('cart');
+
+    ListResult result = await ref.listAll();
+
+    List<OrderModel> products = [];
+
+    for (Reference ref in result.items) {
+      String product = await ref.getDownloadURL();
+
+      products.add(OrderModel.fromJson(jsonDecode(product)));
     }
 
     return products;
