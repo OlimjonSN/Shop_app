@@ -10,9 +10,13 @@ import 'package:shopp/features/auth/data/datasource/auth_local_data.dart';
 import 'package:shopp/features/auth/data/datasource/auth_remote_data.dart';
 import 'package:shopp/features/auth/data/repositories/auth_repository.dart';
 import 'package:shopp/features/auth/presentation/providers/auth_provider.dart';
+import 'package:shopp/features/shopp/data/repositories/shopp_repository.dart';
+import 'package:shopp/features/shopp/presentation/providers/shopp_provider.dart';
 
 import 'core/firebase_options.dart';
 import 'core/network/network_info.dart';
+import 'features/shopp/data/datasource/shopp_local_datasource.dart';
+import 'features/shopp/data/datasource/shopp_remote_datasource.dart';
 
 final sl = GetIt.instance;
 
@@ -30,6 +34,12 @@ Future<void> init() async {
     ),
   );
 
+  sl.registerFactory(
+    () => ShoppProvider(
+      shoppRepository: sl(),
+    ),
+  );
+
   // Repository
   sl.registerLazySingleton<AuthRepository>(
     () => AuthRepository(
@@ -38,14 +48,28 @@ Future<void> init() async {
       authRemoteData: sl(),
     ),
   );
+  
+  sl.registerLazySingleton<ShoppRepository>(
+    () => ShoppRepository(
+      networkInfo: sl(),
+      shoppLocalDatasource: sl(),
+      shoppRemoteDatasource: sl(),
+    ),
+  );
 
   // Data sources
   sl.registerLazySingleton<AuthRemoteData>(
     () => AuthRemoteData(firebaseAuth: sl(), firebaseStorage: sl()),
   );
-
   sl.registerLazySingleton<AuthLocalData>(
     () => AuthLocalData(sharedPreference: sl()),
+  );
+
+  sl.registerLazySingleton<ShoppRemoteDatasource>(
+    () => ShoppRemoteDatasource(firebaseStorage: sl()),
+  );
+  sl.registerLazySingleton<ShoppLocalDatasource>(
+    () => ShoppLocalDatasource(sharedPreferences: sl()),
   );
 
   //! Core

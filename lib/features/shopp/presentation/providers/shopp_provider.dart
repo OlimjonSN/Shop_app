@@ -14,7 +14,7 @@ class ShoppProvider with ChangeNotifier {
   String? errorMessage;
   List<ProductModel> products = [];
   List<OrderModel> orders = [];
-  List<String> categories = [];
+  List<String> categories = ['all'];
 
   Future<void> getProducts(String categoryName) async {
     shoppState = ShoppState.loading;
@@ -32,9 +32,10 @@ class ShoppProvider with ChangeNotifier {
 
   Future<void> getCategories() async {
     shoppState = ShoppState.loading;
-    notifyListeners();
+    // notifyListeners();
     try {
-      categories = await shoppRepository.getCategories();
+      categories.addAll( await shoppRepository.getCategories());
+      print(categories);
       shoppState = ShoppState.loaded;
       notifyListeners();
     } catch (e) {

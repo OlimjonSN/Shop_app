@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shopp/features/auth/presentation/pages/registration_page.dart';
-import 'package:shopp/features/shopp_admin/presentation/add_category.dart';
-import 'package:shopp/features/shopp_admin/presentation/add_product.dart';
-import 'package:shopp/features/shopp_admin/presentation/category_admin.dart';
 
 import '../../features/auth/presentation/pages/login_page.dart';
 import '../../features/auth/presentation/pages/splash_screen.dart';
@@ -10,8 +7,11 @@ import '../../features/shopp/presentation/pages/cart_page.dart';
 import '../../features/shopp/presentation/pages/home_page.dart';
 import '../../features/shopp/presentation/pages/product_page.dart';
 import '../../features/shopp/presentation/pages/profile_page.dart';
-import '../../features/shopp_admin/presentation/product_admin.dart';
-import '../../features/shopp_admin/presentation/profile_admin.dart';
+import '../../features/shopp_admin/presentation/pages/category_admin.dart';
+import '../../features/shopp_admin/presentation/pages/product_admin.dart';
+import '../../features/shopp_admin/presentation/pages/profile_admin.dart';
+import '../../features/shopp_admin/presentation/widgets/add_category.dart';
+import '../../features/shopp_admin/presentation/widgets/add_product.dart';
 
 class RouteGenerator {
   //? Routes auth
@@ -31,6 +31,7 @@ class RouteGenerator {
   static const String profileAdmin = '/profileAdmin';
   static const String addCategory = '/addCategory';
   static const String addProduct = '/addProduct';
+  
   static Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case splashScreen:

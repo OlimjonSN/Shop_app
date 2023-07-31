@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shopp/features/auth/presentation/providers/auth_provider.dart';
 
 import 'config/router/routes.dart';
+import 'features/shopp/presentation/providers/shopp_provider.dart';
 import 'injection_container.dart';
 // import 'injection_container.dart';
 
@@ -20,12 +21,13 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => sl<AuthProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<ShoppProvider>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'BellotaText', textTheme: const TextTheme(bodySmall: TextStyle(color: Color(0xFF5F5A5A), fontWeight: FontWeight.w400))),
         title: 'Shop',
-        initialRoute: RouteGenerator.categoyAdmin,
+        initialRoute: RouteGenerator.home,
         onGenerateRoute: RouteGenerator.generateRoute,
       ),
     );

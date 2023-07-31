@@ -37,13 +37,17 @@ class ShoppRemoteDatasource {
 
   /// Gets the list of categories
   Future<List<String>> getCategories() async {
+    print('categories started');
     Reference ref = firebaseStorage.ref().child('categories');
 
     ListResult result = await ref.listAll();
 
+    print(result.prefixes);
+
     List<String> categories = [];
 
-    for (Reference ref in result.items) {
+    for (Reference ref in result.prefixes) {
+      print(ref.name);
       categories.add(ref.name);
     }
 
