@@ -52,6 +52,6 @@ class ShoppAdminRemoteDatasource extends ShoppRemoteDatasource {
     final folderRef = FirebaseStorage.instance.ref().child('categories');
 
     // Create the folder
-    await folderRef.child(categoryName).putString('hello world');
+    await folderRef.child('$categoryName/file/').putString('hello.txt');
   }
 }
