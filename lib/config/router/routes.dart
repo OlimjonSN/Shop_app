@@ -48,11 +48,11 @@ class RouteGenerator {
       case profilePage:
         return PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) => const ProfilePage(), transitionDuration: Duration.zero);
       case categoyAdmin:
-        return MaterialPageRoute(builder: (_) => const CategoyAdmin());
+        return PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) => const CategoyAdmin(), transitionDuration: Duration.zero);
       case productAdmin:
-        return MaterialPageRoute(builder: (_) => const ProductAdmin());
+        return PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) => const ProductAdmin(), transitionDuration: Duration.zero);
       case profileAdmin:
-        return MaterialPageRoute(builder: (_) => const ProfileAdmin());
+        return PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) => const ProfileAdmin(), transitionDuration: Duration.zero);
       case addCategory:
         return MaterialPageRoute(builder: (_) => const AddCategory());
       case addProduct:
