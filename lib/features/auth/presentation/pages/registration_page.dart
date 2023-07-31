@@ -3,7 +3,7 @@ import 'package:shopp/config/router/routes.dart';
 import 'package:shopp/features/shopp/presentation/widgets/yellow_button.dart';
 
 class RegistrationPage extends StatefulWidget {
-  RegistrationPage({super.key});
+  const RegistrationPage({super.key});
 
   @override
   State<RegistrationPage> createState() => _RegistrationPageState();

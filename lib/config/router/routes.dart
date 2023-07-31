@@ -33,17 +33,17 @@ class RouteGenerator {
       case splashScreen:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case login:
-        return MaterialPageRoute(builder: (_) => LoginPage());
+        return MaterialPageRoute(builder: (_) => const LoginPage());
       case register:
-        return MaterialPageRoute(builder: (_) => RegistrationPage());
+        return MaterialPageRoute(builder: (_) => const RegistrationPage());
       case home:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) => const HomePage(), transitionDuration: Duration.zero);
       case productPage:
         return MaterialPageRoute(builder: (_) => const ProductPage());
       case cartPage:
-        return MaterialPageRoute(builder: (_) => const CartPage());
+        return PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) => const CartPage(), transitionDuration: Duration.zero);
       case profilePage:
-        return MaterialPageRoute(builder: (_) => const ProfilePage());
+        return PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) => const ProfilePage(), transitionDuration: Duration.zero);
       case categoyAdmin:
         return MaterialPageRoute(builder: (_) => const CategoyAdmin());
       case productAdmin:

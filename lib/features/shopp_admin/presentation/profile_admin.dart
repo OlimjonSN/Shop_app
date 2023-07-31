@@ -16,7 +16,7 @@ class ProfileAdmin extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             const CircleAvatar(
+            const CircleAvatar(
               radius: 100,
               backgroundImage: AssetImage('assets/images/xola.png'),
             ),
@@ -25,7 +25,7 @@ class ProfileAdmin extends StatelessWidget {
             Container(
               color: Colors.amber,
               width: double.infinity,
-              child: Text('45'),
+              child: const Text('45'),
             )
           ],
         ));

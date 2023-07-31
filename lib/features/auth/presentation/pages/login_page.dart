@@ -4,7 +4,7 @@ import 'package:shopp/features/shopp/presentation/widgets/yellow_button.dart';
 import '../../../../config/router/routes.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();

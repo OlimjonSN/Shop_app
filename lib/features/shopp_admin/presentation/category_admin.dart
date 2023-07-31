@@ -11,7 +11,7 @@ class CategoyAdmin extends StatelessWidget {
           title: const Text('Category'),
           backgroundColor: Colors.grey[600],
           elevation: 0.0,
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+          actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
         ),
         body: ListView.builder(
           itemCount: 1,

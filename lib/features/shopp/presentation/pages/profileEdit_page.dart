@@ -26,7 +26,7 @@ class ProfileEditPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 80,
               backgroundImage: AssetImage(
                 'assets/images/xola.png',

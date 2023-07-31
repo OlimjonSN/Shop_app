@@ -3,8 +3,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/yellow_button.dart';
 
-class ProductPage extends StatelessWidget {
+class ProductPage extends StatefulWidget {
   const ProductPage({super.key});
+
+  @override
+  State<ProductPage> createState() => _ProductPageState();
+}
+
+class _ProductPageState extends State<ProductPage> {
+  bool isLiked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,15 +46,16 @@ class ProductPage extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        // TODO: MAKE HEART ICON WORK
                         onTap: () {
-                          print('heart');
+                          setState(() {
+                            isLiked = !isLiked;
+                          });
                         },
                         child: Container(
                           width: 41,
                           height: 41,
                           padding: const EdgeInsets.all(8),
-                          decoration: const ShapeDecoration(color: Colors.white, shape: OvalBorder()),
+                          decoration: ShapeDecoration(color: isLiked ? Colors.red : Colors.white, shape: const OvalBorder()),
                           child: SvgPicture.asset('assets/icons/heart.svg'),
                         ),
                       ),
@@ -86,9 +94,9 @@ class ProductPage extends StatelessWidget {
                     children: [
                       YellowButton(
                         title: 'Buy Now',
-                        // TODO: buy now
+                        
                         onTap: () {
-                          print('buy now');
+                          
                         },
                       ),
                       IconButton(
